@@ -1,5 +1,5 @@
 import pandas as pd
-
+from sklearn.utils import shuffle
 
 def enter_record(index, attribute, row, f):
     song_title = 'song_' + str(index)
@@ -14,9 +14,9 @@ if __name__ == '__main__':
 
     # Define 2 conditions based on which to generate the triadic : chill and energy
     # For the chill define conditions:  acousticness > 0.5; danceability < 0.6; energy < 0.5; instrumentalness > 0.5
-
+    ds = shuffle(ds)
     f = open("triadic_dataset_genre.csv", "w")
-    for index, row in ds.iterrows():
+    for index, row in ds.head(10000).iterrows():
         # song_title = row['song_title'].replace(',', '')
 
 
